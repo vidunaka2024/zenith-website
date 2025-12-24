@@ -5,13 +5,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +12,371 @@
   }
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth scrolling for internal links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Better section spacing */
+section {
+  scroll-margin-top: 80px;
+  position: relative;
+}
+
+/* Section transition animations */
+.section-transition {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.section-transition.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Smooth section borders/dividers */
+.section-divider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.5), transparent);
+}
+
+.section-divider.bottom {
+  top: auto;
+  bottom: 0;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.bg-grid-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+
+/* Ensure consistent scroll behavior */
+html {
+  scroll-padding-top: 6rem;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 8rem;
+  }
+}
+
+/* Page-like section transitions */
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Add section entrance animations */
+.section-enter {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-enter.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section separators with enhanced visuals */
+.section-separator {
+  position: relative;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(156, 163, 175, 0.1) 20%,
+    rgba(156, 163, 175, 0.2) 50%,
+    rgba(156, 163, 175, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+.dark .section-separator {
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(75, 85, 99, 0.1) 20%,
+    rgba(75, 85, 99, 0.2) 50%,
+    rgba(75, 85, 99, 0.1) 80%,
+    transparent 100%
+  );
+}
+
+/* Enhanced section shadows for depth */
+section#home::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.3), transparent);
+  filter: blur(2px);
+}
+
+section#about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.3), transparent);
+  filter: blur(2px);
+}
+
+section#portfolio::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.3), transparent);
+  filter: blur(2px);
+}
+
+/* Consistent professional page sections */
+.page-section {
+  min-height: 100vh;
+  padding: 8rem 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .page-section {
+    padding: 10rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-section {
+    padding: 12rem 0;
+  }
+}
+
+/* Consistent container system */
+.page-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .page-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding: 0 4rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .page-container {
+    padding: 0 6rem;
+  }
+}
+
+/* Consistent content spacing */
+.section-content {
+  width: 100%;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-header {
+    margin-bottom: 8rem;
+  }
+}
+
+.section-grid {
+  display: grid;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-grid {
+    gap: 3rem;
+    margin-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-grid {
+    gap: 4rem;
+    margin-bottom: 8rem;
+  }
+}
+
+/* Professional card system */
+.content-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.dark .content-card {
+  background: rgba(31, 41, 55, 0.8);
+  border-color: rgba(75, 85, 99, 0.3);
+}
+
+@media (min-width: 768px) {
+  .content-card {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .content-card {
+    padding: 4rem;
+  }
+}
+
+/* Professional spacing utilities */
+.professional-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .professional-container {
+    padding: 0 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .professional-container {
+    padding: 0 4rem;
+  }
+}
+
+.professional-section {
+  margin-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+  .professional-section {
+    margin-bottom: 12rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .professional-section {
+    margin-bottom: 16rem;
+  }
 }
