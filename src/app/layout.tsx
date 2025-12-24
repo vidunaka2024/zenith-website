@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Zenith Innovations - Digital Agency | Software Development & Marketing",
-  description: "Full-service digital agency offering custom software development, web development, and comprehensive digital marketing solutions.",
+  description: "Full-service digital agency offering custom software development, web development, content creation, social media marketing, influencer marketing and comprehensive digital marketing solutions. Founded in 2019, based in Colombo, Sri Lanka.",
 };
 
 export default function RootLayout({

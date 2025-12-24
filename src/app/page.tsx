@@ -1,17 +1,19 @@
 import Hero from '@/components/Hero'
-import About from '@/components/About'
-import Portfolio from '@/components/Portfolio'
-import Contact from '@/components/Contact'
+import AboutSummary from '@/components/AboutSummary'
+import ServicesSummary from '@/components/ServicesSummary'
+import PortfolioSummary from '@/components/PortfolioSummary'
+import Testimonials from '@/components/Testimonials'
+import ContactSummary from '@/components/ContactSummary'
 
 export default function Home() {
   return (
     <main className="relative">
-      {/* Full Single-Page Website with Beautiful Transitions */}
       <Hero />
-
-      <About />
-      <Portfolio />
-      <Contact />
+      <AboutSummary />
+      <ServicesSummary />
+      <PortfolioSummary />
+      <Testimonials />
+      <ContactSummary />
     </main>
   )
 }
